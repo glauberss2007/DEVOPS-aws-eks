@@ -222,3 +222,20 @@ kubectl get all
 kubectl get service
 kubectl describe svc
 ``
+## Design an APP on EKS
+
+![image](https://user-images.githubusercontent.com/22028539/129767462-05f5ee0d-6671-4140-a42f-80456e9950ed.png)
+
+In this simple project we dont have a backend, so the structure is like this one:
+
+![image](https://user-images.githubusercontent.com/22028539/129768133-9339acbc-186a-499e-a704-66c48bd79a43.png)
+
+The guestbook-go project is in https://github.com/glauberss2007/examples forked from https://github.com/kubernetes/examples
+
+Clone the repo above to your machine and them use VS Code to open the guestbook-go and run the json manifest acording to steps showed on README
+
+## 
+
+
+
+
