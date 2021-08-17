@@ -194,9 +194,31 @@ An example of chart structure is:
 
 ## Helm demo
 
+Installing helm [installation](https://helm.sh/docs/intro/install/):
+``
+choco install kubernetes-helm
+helm version
+helm search repo
+helm search hub
+``
 
+Add repo and search for nginx one:
+``
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm search repo nginx
+``
 
+Dowloading a helm repo:
+``
+helm pull bitnami/nginx --untar=true
+``
+PS: in this repo you can see the yml and files.
 
-
-
-
+Let install it on our K8S:
+``
+kubectl get all
+helm install helm-nginx bitnami/nginx
+kubectl get all
+kubectl get service
+kubectl describe svc
+``
