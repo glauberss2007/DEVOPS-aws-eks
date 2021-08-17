@@ -234,8 +234,13 @@ The guestbook-go project is in https://github.com/glauberss2007/examples forked 
 
 Clone the repo above to your machine and them use VS Code to open the guestbook-go and run the json manifest acording to steps showed on README
 
-## 
+App structure inside EKS:
 
+![image](https://user-images.githubusercontent.com/22028539/129779865-c1b302e3-36d7-4076-a5d0-e897828b22d3.png)
+
+## Wordpress using helm
+
+The tutorial is in https://bitnami.com/stack/wordpress/helm
 
 
 
