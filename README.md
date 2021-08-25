@@ -242,5 +242,43 @@ App structure inside EKS:
 
 The tutorial is in https://bitnami.com/stack/wordpress/helm
 
+## EKS Logging
+
+There are 2 types of loggins in EKS:
+1. Control Plane logs: k8 api, audit, authenticator, controllerManager, scheduler
+2. Worker nodes log:System logs from kubelet, kube-proxy, dockerd, app logs from app container
+
+Chalanges envolving logs:
+1. If instance terminated (EC2 node conected to EBS) logs are gone
+2. Logs aggregation (an app running in multiple pods using diferent Nodes)
+
+Abstract the log structure and provide a centralized location for logs.
+
+Where are the logs for extraction?
+- Containerized APP writes at stdout and stferr
+- System logs go to systemd
+- Container redirect logs to /var/log/container/*.log files
+
+The implementation will be like this, with an agent runing inside a POD in each NODE:
+
+![image](https://user-images.githubusercontent.com/22028539/130775589-e9c245e5-4cc4-4184-a12e-aa0d592e005f.png)
+
+A popular agent is the FLUENTD, it gets the logs and send to diferents LOG BACKENDS such AWS elastick service, splunk, hadoop, cloudwatch,...
+
+For streaming the log for diferents LOGGING BACKENDs, you can use AMAZON KINESIS DATA FIREHOSE or KAFKA.
+
+### EFK Stack
+ 
+Fluend as agent, Amazon Elastick Service as backend and Kibana for Graph and visibility generation.
+
+## FluentD x FluentBit
+
+Basicly fluentD has much more plugins, however, when the traffic goes UP, fluentd cant keep UP.
+
+## Logging Demos
+
+### Fluentd, AWS cloudwatch, AWS Elastich Service nad Kibana
+
+### Fluentbit, AWS Kineses Data Firehose and AWS S3
 
 
